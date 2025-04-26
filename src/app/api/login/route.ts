@@ -1,3 +1,4 @@
+import { setAuthCookies } from '@/lib/auth';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/utils/constant';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
@@ -22,22 +23,9 @@ export async function POST(req: NextRequest) {
   }
 
   const response = NextResponse.json({ message: 'Login success' });
+  const {accessToken,refreshToken} = data
+  await setAuthCookies(accessToken,refreshToken)
 
-  response.cookies.set(ACCESS_TOKEN, data.accessToken, {
-    httpOnly: true,  
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    path: '/',
-    maxAge: 60 * 60 * 24, 
-  });
-
-  response.cookies.set(REFRESH_TOKEN, data.refreshToken, {
-    httpOnly: true,  
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    path: '/',
-    maxAge: 60 * 60 * 240,
-  });
 
   return response;
 }
