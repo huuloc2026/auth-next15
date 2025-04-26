@@ -35,10 +35,10 @@ const LoginUI = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center ">
       <form
         onSubmit={handleLogin}
-        className="bg-black p-6 rounded shadow-md w-full max-w-sm"
+        className="bg-yellow-300 p-6 rounded shadow-md w-full max-w-sm text-black"
       >
         <h2 className="text-2xl text-red-500 font-semibold mb-4">Login</h2>
 
@@ -62,7 +62,7 @@ const LoginUI = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+          className="w-full bg-blue-500 text-black py-2 rounded hover:bg-blue-600 transition"
         >
           Login
         </button>
