@@ -1,4 +1,5 @@
-"use client";
+'use client';
+import api from '@/lib/axios';
 import {  useRouter } from 'next/navigation'
 import React, { useState } from "react";
 
@@ -12,6 +13,9 @@ const LoginUI = () => {
     e.preventDefault();
 
     try {
+      // await api.post('/auth/login', { username, password });
+
+
         const res = await fetch("/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

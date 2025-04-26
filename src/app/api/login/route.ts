@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const res = await api.post('/auth/login', {
     username,
     password,
-    expiresInMins: 15 // set token expiry
+    expiresInMins: 15 
   });
   
   const data = await res.data
