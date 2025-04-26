@@ -1,8 +1,9 @@
 "use client";
-
+import {  useRouter } from 'next/navigation'
 import React, { useState } from "react";
 
 const LoginUI = () => {
+  const router = useRouter();
   const [username, setUsername] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
   const [error, setError] = useState("");
@@ -16,8 +17,7 @@ const LoginUI = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
         });
-    
-
+  
       const data = await res.json();
 
       if (!res.ok) {
@@ -27,8 +27,8 @@ const LoginUI = () => {
 
       alert("Login successful!");
       setError("");
-
-      alert("Login successful!");
+      router.push('/protected');  
+      
     } catch (err) {
       setError("Something went wrong");
     }
