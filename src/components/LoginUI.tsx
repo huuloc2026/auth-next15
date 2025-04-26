@@ -38,11 +38,11 @@ const LoginUI = () => {
     <div className="min-h-screen flex items-center justify-center ">
       <form
         onSubmit={handleLogin}
-        className="bg-yellow-300 p-6 rounded shadow-md w-full max-w-sm text-black"
+        className="bg-blue-100 p-6 rounded shadow-md w-full max-w-sm text-black"
       >
-        <h2 className="text-2xl text-red-500 font-semibold mb-4">Login</h2>
+        <h2 className="text-2xl text-white-500 font-semibold mb-4">Login</h2>
 
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+        {error && <p className="text-white-500 text-sm mb-2">{error}</p>}
 
         <input
           type="text"

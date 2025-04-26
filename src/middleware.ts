@@ -21,7 +21,7 @@ export const config = {
 
 export async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  console.log(path)
+
   const isProtectedRoute = protectedRoutes.includes(path);
   const isPublicRoute = publicRoutes.includes(path);
   const accessToken = (await cookies()).get(ACCESS_TOKEN)?.value;
